@@ -4,6 +4,7 @@ import com.banco.model.Cliente;
 import com.banco.repository.ClienteRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
@@ -20,6 +21,7 @@ public class ClienteService {
      * Retorna todos os clientes.
      * @return Lista de clientes.
      */
+    @Transactional(readOnly = true)
     public List<Cliente> findAll() {
         return clienteRepository.findAll();
     }
@@ -29,6 +31,7 @@ public class ClienteService {
      * @param cliente Objeto cliente.
      * @return Cliente salvo.
      */
+    @Transactional
     public Cliente save(Cliente cliente) {
         return clienteRepository.save(cliente);
     }
@@ -39,6 +42,7 @@ public class ClienteService {
      * @return Cliente encontrado.
      * @throws RuntimeException se não encontrado.
      */
+    @Transactional(readOnly = true)
     public Cliente findById(Long id) {
         return clienteRepository.findById(id).orElseThrow(() -> new RuntimeException("Cliente não encontrado"));
     }

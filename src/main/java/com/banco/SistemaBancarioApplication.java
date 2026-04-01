@@ -10,6 +10,7 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
+import org.springframework.transaction.annotation.Transactional;
 
 @SpringBootApplication
 public class SistemaBancarioApplication {
@@ -19,12 +20,13 @@ public class SistemaBancarioApplication {
 	}
 
 	@Bean
+	@Transactional
 	public CommandLineRunner initData(ClienteRepository clienteRepository, ContaRepository contaRepository) {
 		return args -> {
 			Cliente c1 = new Cliente(null, 1, "Eduardo", "123.456.789-00");
 			Cliente c2 = new Cliente(null, 2, "Maria", "987.654.321-11");
-			clienteRepository.save(c1);
-			clienteRepository.save(c2);
+			c1 = clienteRepository.save(c1);
+			c2 = clienteRepository.save(c2);
 
 			Conta conta1 = new ContaEspecial(101, 1000.0, 500.0, 2.5);
 			conta1.setCliente(c1);

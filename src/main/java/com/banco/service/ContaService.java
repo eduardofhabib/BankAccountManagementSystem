@@ -22,6 +22,7 @@ public class ContaService {
      * Retorna todas as contas cadastradas.
      * @return Lista de contas.
      */
+    @Transactional(readOnly = true)
     public List<Conta> findAll() {
         return contaRepository.findAll();
     }
@@ -32,6 +33,7 @@ public class ContaService {
      * @return A conta encontrada.
      * @throws RuntimeException se a conta não for encontrada.
      */
+    @Transactional(readOnly = true)
     public Conta findById(Long id) {
         return contaRepository.findById(id).orElseThrow(() -> new RuntimeException("Conta não encontrada"));
     }
