@@ -5,7 +5,7 @@
   "rewrites": [
     {
       "source": "/api/(.*)",
-      "destination": "https://seu-backend-no-render-ou-railway.com/api/$1"
+      "destination": "https://bank-account-management-system-nay4.onrender.com"
     },
     {
       "source": "/(.*)",
