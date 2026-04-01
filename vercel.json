@@ -5,7 +5,7 @@
   "rewrites": [
     {
       "source": "/api/(.*)",
-      "destination": "https://bank-account-management-system-nay4.onrender.com"
+      "destination": "https://bank-account-management-system-nay4.onrender.com/api/$1"
     },
     {
       "source": "/(.*)",
