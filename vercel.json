@@ -1,0 +1,15 @@
+{
+  "version": 2,
+  "public": true,
+  "cleanUrls": true,
+  "rewrites": [
+    {
+      "source": "/api/(.*)",
+      "destination": "https://seu-backend-no-render-ou-railway.com/api/$1"
+    },
+    {
+      "source": "/(.*)",
+      "destination": "/src/main/resources/static/$1"
+    }
+  ]
+}
